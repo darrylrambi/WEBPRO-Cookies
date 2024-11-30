@@ -27,7 +27,7 @@
 
         <!-- Isi Email -->
         <div class="mb-2">
-          <label for="LoginEmail" class="form-label">Alamat email</label>
+          <label for="LoginEmail" class="form-label">Email</label>
           <input type="email" class="form-control" id="LoginEmail" name="LoginEmail">
         </div>
 

@@ -25,6 +25,12 @@
       <form method = "POST" action = "userLogin.php">
         @csrf
 
+        <!-- Isi Email -->
+        <div class="mb-2">
+          <label for="LupaPasswordEmail" class="form-label">Email</label>
+          <input type="email" class="form-control" id="LupaPasswordEmail" name="LupaPasswordEmail">
+        </div>
+
         <!-- Isi kata sandi -->
         <div class="mb-4">
           <label for="PasswordBaru" class="form-label">Password Baru</label>
