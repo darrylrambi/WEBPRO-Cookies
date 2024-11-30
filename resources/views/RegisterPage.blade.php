@@ -5,8 +5,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Register</title>
-  <!-- External buat background -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
 
   <!-- Conect CSS bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -14,11 +12,6 @@
 
   <!-- Connect CSS -->
   <link rel="stylesheet" href="css/darryl.css">
-
-  <!-- Import Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Merriweather:wght@400;700&display=swap"
-    rel="stylesheet">
 </head>
 
 <body>
@@ -30,17 +23,18 @@
       <div class="fs-2 fw-bold text-center">Register</div>
 
       <form method = "POST" action = "userLogin.php">
+        @csrf
 
         <!-- Isi Email -->
         <div class="mb-2">
-          <label for="inputEmail" class="form-label">Alamat email</label>
-          <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
+          <label for="RegisterEmail" class="form-label">Email</label>
+          <input type="email" class="form-control" id="RegisterEmail" name="RegisterEmail">
         </div>
 
         <!-- Isi kata sandi -->
         <div class="mb-4">
-          <label for="inputPassword" class="form-label">Kata sandi</label>
-          <input type="password" class="form-control" id="inputPassword">
+          <label for="RegisterPassword" class="form-label">Password</label>
+          <input type="password" class="form-control" id="RegisterPassword" name="RegisterPassword">
         </div>
 
         <!-- Button masuk -->
