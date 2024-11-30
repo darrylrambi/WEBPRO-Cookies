@@ -7,3 +7,4 @@ Route::get('/', function () {
 });
 
 Route::view('LoginPage', 'LoginPage')->name('LoginPage');
+Route::view('RegisterPage', 'RegisterPage')->name('RegisterPage');

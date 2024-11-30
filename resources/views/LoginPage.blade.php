@@ -27,7 +27,7 @@
   <div class="container content1">
     <div class="container" id="form_box">
       <!-- Insert bacotan formalitas -->
-      <div class="fs-2 fw-bold text-center">Masuk</div>
+      <div class="fs-2 fw-bold text-center">Login</div>
 
       <form method = "POST" action = "userLogin.php">
 
@@ -46,14 +46,14 @@
 
         <!-- Button masuk -->
         <div class="d-flex flex-column justify-content-center btn btn-primary">
-          <button>Masuk</button>
+          <button type="button" class="btn">Login</button>
         </div>
 
         <!-- Lempar ke daftar -->
         <div class="d-flex justify-content-center mt-2">
           <div class="fs-6">Belum punya akun?</div>
           <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover ms-1"
-            href="darryl_landing.html">
+            href="{{ route('RegisterPage') }}">
             Daftar
           </a>
         </div>
