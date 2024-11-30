@@ -49,6 +49,15 @@
           <button type="button" class="btn">Login</button>
         </div>
 
+        <!-- Lempar ke Lupa password -->
+        <div class="d-flex justify-content-center mt-2">
+          <div class="fs-6">Lupa password?</div>
+          <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover ms-1"
+            href="{{ route('LupaPasswordPage') }}">
+            Reset
+          </a>
+        </div>
+
         <!-- Lempar ke daftar -->
         <div class="d-flex justify-content-center mt-2">
           <div class="fs-6">Belum punya akun?</div>
