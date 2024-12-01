@@ -23,9 +23,9 @@ class UserController extends Controller
 
     function Login(Request $request) {
         // check email di database
-        $validateEmail = tm_user::where('Email', $request->input('LoginEmail'))->first();
+        $validateUser = tm_user::where('Email', $request->input('LoginEmail'))->first();
 
-        if ($validateEmail && Hash::check($request->input('LoginPassword'), $user->Password)) {
+        if ($validateUser && $validateUser->Password == $request->input('LoginPassword')) {
             // check RememberMe
             $remember = $request->has('RememberMe');
 
