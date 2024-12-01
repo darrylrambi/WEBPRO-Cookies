@@ -17,5 +17,4 @@ Route::view('MainPage', 'MainPage')->name('MainPage');
 
 // post route
 Route::post('RegisterPage', [UserController::class, 'Register']);
-
-
+Route::post('LoginPage', [userController::class, 'Login']);

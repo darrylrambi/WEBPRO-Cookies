@@ -22,7 +22,7 @@
       <!-- Insert bacotan formalitas -->
       <div class="fs-2 fw-bold text-center">Lupa Password</div>
 
-      <form method = "POST" action = "userLogin.php">
+      <form method = "POST" action = "LoginPage">
         @csrf
 
         <!-- Isi Email -->

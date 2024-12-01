@@ -30,8 +30,8 @@ class UserController extends Controller
 
         if ($remember) {
             // isi cookie kalo RememberMe
-            setcookie("Email", session('Email'), time()+3600);
-            setcookie("Password", session('Password'), time()+3600);
+            setcookie("Email", session('Email'), time()+3600); // set cookie sejam
+            setcookie("Password", session('Password'), time()+3600); // set cookie sejam
         } else {
             // Kosongkan cookie kalo tidak RememberMe
             setcookie("Email", "");

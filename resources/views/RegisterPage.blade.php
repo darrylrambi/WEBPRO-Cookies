@@ -22,7 +22,7 @@
       <!-- Insert bacotan formalitas -->
       <div class="fs-2 fw-bold text-center">Register</div>
 
-      <form method = "POST" action = "userLogin.php">
+      <form method = "POST" action = "RegisterPage">
         @csrf
 
         <!-- Isi Email -->
