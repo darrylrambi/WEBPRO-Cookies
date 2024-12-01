@@ -28,13 +28,15 @@
         <!-- Isi Email -->
         <div class="mb-2">
           <label for="LoginEmail" class="form-label">Email</label>
-          <input type="email" class="form-control" id="LoginEmail" name="LoginEmail">
+          <input type="email" class="form-control" @if(isset($_COOKIE['LoginEmail'])) value="{{ $_COOKIE['LoginEmail'] }}" @endif
+          id="LoginEmail" name="LoginEmail">
         </div>
 
         <!-- Isi kata sandi -->
         <div class="mb-4">
           <label for="LoginPassword" class="form-label">Password</label>
-          <input type="password" class="form-control" id="LoginPassword" name="LoginPassword">
+          <input type="password" class="form-control" @if(isset($_COOKIE['LoginPassword'])) value="{{ $_COOKIE['LoginPassword'] }}" @endif 
+          id="LoginPassword" name="LoginPassword">
           <input type="checkbox" id="RememberMe" name="RememberMe"> Remember me
         </div>
 

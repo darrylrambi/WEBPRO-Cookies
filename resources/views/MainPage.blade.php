@@ -1,3 +1,4 @@
+<title>Hasil</title>
 <div>
     <h1>User list dari database</h1>
     @if(session('users'))
