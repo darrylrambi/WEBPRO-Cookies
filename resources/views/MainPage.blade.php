@@ -10,7 +10,7 @@
     @endif
 
     <h1>Cookies</h1>
-    @if(session('users'))
+    @if(isset($_COOKIE['LoginEmail']) && isset($_COOKIE['LoginPassword']))
         <p>{{ $_COOKIE['LoginEmail'] }}</p>
         <p>{{ $_COOKIE['LoginPassword'] }}</p>
     @else
