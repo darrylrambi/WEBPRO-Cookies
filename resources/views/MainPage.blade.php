@@ -1,5 +1,18 @@
 <div>
-    @foreach ($users as $user)
-        <p>{{ $user->Email }} - {{ $user->Password }}</p>
-    @endforeach
+    <h1>User list dari database</h1>
+    @if(session('users'))
+        @foreach(session('users') as $user)
+            <p>{{ $user->Email }} - {{ $user->Password }}</p>
+        @endforeach
+    @else
+        <p>Tidak ada user</p>
+    @endif
+
+    <h1>Cookies</h1>
+    @if(session('users'))
+        <p>{{ $_COOKIE['LoginEmail'] }}</p>
+        <p>{{ $_COOKIE['LoginPassword'] }}</p>
+    @else
+        <p>Tidak ada cookies</p>
+    @endif
 </div>

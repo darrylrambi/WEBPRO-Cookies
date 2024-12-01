@@ -38,12 +38,11 @@ class UserController extends Controller
             setcookie("LoginPassword", "");
         }
 
-        return redirect('MainPage')->with('Login berhasil!');
-    }
-
-    public function ShowUsers()
-    {
+        // simpan user dari database ke session
+        // nanti di show pake session di mainpage
         $users = tm_user::all();
-        return redirect('MainPage', compact('users'));
+        session(['users' => $users]);
+
+        return redirect('MainPage')->with('Login berhasil!');
     }
 }

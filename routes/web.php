@@ -18,6 +18,3 @@ Route::view('MainPage', 'MainPage')->name('MainPage');
 // post route
 Route::post('RegisterPage', [UserController::class, 'Register']);
 Route::post('LoginPage', [UserController::class, 'Login']);
-
-// get route
-Route::get('MainPage', [UserController::class, 'ShowUsers']);
