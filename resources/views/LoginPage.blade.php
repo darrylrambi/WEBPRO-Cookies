@@ -35,7 +35,7 @@
         <div class="mb-4">
           <label for="LoginPassword" class="form-label">Password</label>
           <input type="password" class="form-control" id="LoginPassword" name="LoginPassword">
-          <input type="checkbox" id="togglePassword"> Remember me
+          <input type="checkbox" id="RememberMe" name="RememberMe"> Remember me
         </div>
 
         <!-- Button masuk -->

@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+// Import controller
+use App\Http\Controllers\UserController;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -11,5 +14,8 @@ Route::view('LoginPage', 'LoginPage')->name('LoginPage');
 Route::view('RegisterPage', 'RegisterPage')->name('RegisterPage');
 Route::view('LupaPasswordPage', 'LupaPasswordPage')->name('LupaPasswordPage');
 Route::view('MainPage', 'MainPage')->name('MainPage');
+
+// post route
+Route::post('RegisterPage', [UserController::class, 'Register']);
 
 
