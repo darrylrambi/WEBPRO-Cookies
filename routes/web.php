@@ -18,3 +18,4 @@ Route::view('MainPage', 'MainPage')->name('MainPage');
 // post route
 Route::post('RegisterPage', [UserController::class, 'Register']);
 Route::post('LoginPage', [UserController::class, 'Login']);
+Route::post('LupaPasswordPage', [UserController::class, 'LupaPassword']);

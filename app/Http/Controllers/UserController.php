@@ -23,16 +23,17 @@ class UserController extends Controller
 
     function Login(Request $request) {
         // check email di database
-        $validateUser = tm_user::where('Email', $request->input('LoginEmail'))->first();
+        $validateUser = tm_user::where('Email', $request->input('LoginEmail'));
 
+        // pake validateUer untuk cek password input sama atau tidak dengan yang ada di database
         if ($validateUser && $validateUser->Password == $request->input('LoginPassword')) {
             // check RememberMe
             $remember = $request->has('RememberMe');
 
             if ($remember) {
                 // isi cookie kalo RememberMe
-                setcookie("LoginEmail", session('LoginEmail'), time()+3600); // set cookie sejam
-                setcookie("LoginPassword", session('LoginPassword'), time()+3600); // set cookie sejam
+                setcookie("LoginEmail", session('LoginEmail'), time()+3600); // set cookie expire sejam
+                setcookie("LoginPassword", session('LoginPassword'), time()+3600); // set cookie expire sejam
             } else {
                 // Kosongkan cookie kalo tidak RememberMe
                 setcookie("LoginEmail", "");
@@ -44,9 +45,27 @@ class UserController extends Controller
             $users = tm_user::all();
             session(['users' => $users]);
 
-            return redirect('MainPage')->with('Login berhasil!');
+            return redirect('MainPage');
         } else {
             return redirect()->back()->withErrors(['LoginError' => 'Email atau Password salah!']);
+        }
+    }
+
+    function LupaPassword(Request $request) {
+        // cari email user di database
+        $findUser = tm_user::find($request->input('LupaPasswordEmail'));
+
+        // pake findUser untuk ganti password sesuai email yang ada di database
+        if ($findUser) {
+
+            $findUser->update([
+                'Email' => $request->input('LupaPasswordEmail'),
+                'Password' => $request->input('PasswordBaru'), 
+            ]);
+
+            return redirect('LoginPage')->with('GantiPassword', 'Berhasil ganti Password!');
+        } else {
+            return redirect()->back()->withErrors(['GantiPasswordError' => 'Email tidak terdaftar!']);
         }
     }
 }

@@ -9,9 +9,6 @@
   <!-- Conect CSS bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-
-  <!-- Connect CSS -->
-  <link rel="stylesheet" href="css/darryl.css">
 </head>
 
 <body>
@@ -22,7 +19,13 @@
       <!-- Insert bacotan formalitas -->
       <div class="fs-2 fw-bold text-center">Lupa Password</div>
 
-      <form method = "POST" action = "LoginPage">
+      <form method = "POST" action = "LupaPasswordPage">
+        @if($errors->has('GantiPasswordError'))
+            <div class="alert alert-danger">
+                {{ $errors->first('GantiPasswordError') }}
+            </div>
+        @endif
+
         @csrf
 
         <!-- Isi Email -->
@@ -39,7 +42,7 @@
 
         <!-- Button masuk -->
         <div class="d-flex flex-column justify-content-center btn btn-primary">
-          <button type="button" class="btn">Reset</button>
+          <button class="btn">Reset</button>
         </div>
 
         <!-- Lempar ke Lupa password -->

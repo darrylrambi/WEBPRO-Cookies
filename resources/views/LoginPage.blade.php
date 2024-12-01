@@ -9,9 +9,6 @@
   <!-- Conect CSS bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-
-  <!-- Connect CSS -->
-  <link rel="stylesheet" href="css/darryl.css">
 </head>
 
 <body>
@@ -35,7 +32,13 @@
             <div class="alert alert-success">
                 {{ session('Berhasil') }}
             </div>
-        @endif  
+        @endif 
+
+        @if(session('GantiPassword'))
+            <div class="alert alert-success">
+                {{ session('GantiPassword') }}
+            </div>
+        @endif 
 
         <!-- Isi Email -->
         <div class="mb-2">
