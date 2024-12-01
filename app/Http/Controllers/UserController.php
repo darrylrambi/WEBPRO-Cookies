@@ -22,27 +22,31 @@ class UserController extends Controller
     }
 
     function Login(Request $request) {
-        $request->session()->put('LoginEmail', $request->input('LoginEmail'));
-        $request->session()->put('LoginPassword', $request->input('LoginPassword'));
+        // check email di database
+        $validateEmail = tm_user::where('Email', $request->input('LoginEmail'))->first();
 
-        // check RememberMe
-        $remember = $request->has('RememberMe');
+        if ($validateEmail && Hash::check($request->input('LoginPassword'), $user->Password)) {
+            // check RememberMe
+            $remember = $request->has('RememberMe');
 
-        if ($remember) {
-            // isi cookie kalo RememberMe
-            setcookie("LoginEmail", session('LoginEmail'), time()+3600); // set cookie sejam
-            setcookie("LoginPassword", session('LoginPassword'), time()+3600); // set cookie sejam
+            if ($remember) {
+                // isi cookie kalo RememberMe
+                setcookie("LoginEmail", session('LoginEmail'), time()+3600); // set cookie sejam
+                setcookie("LoginPassword", session('LoginPassword'), time()+3600); // set cookie sejam
+            } else {
+                // Kosongkan cookie kalo tidak RememberMe
+                setcookie("LoginEmail", "");
+                setcookie("LoginPassword", "");
+            }
+
+            // simpan user dari database ke session
+            // nanti di show pake session di mainpage
+            $users = tm_user::all();
+            session(['users' => $users]);
+
+            return redirect('MainPage')->with('Login berhasil!');
         } else {
-            // Kosongkan cookie kalo tidak RememberMe
-            setcookie("LoginEmail", "");
-            setcookie("LoginPassword", "");
+            return redirect()->back()->withErrors(['LoginError' => 'Email atau Password salah!']);
         }
-
-        // simpan user dari database ke session
-        // nanti di show pake session di mainpage
-        $users = tm_user::all();
-        session(['users' => $users]);
-
-        return redirect('MainPage')->with('Login berhasil!');
     }
 }

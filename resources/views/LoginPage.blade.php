@@ -25,6 +25,12 @@
       <form method = "POST" action = "LoginPage">
         @csrf
 
+        @if($errors->has('LoginError'))
+            <div class="alert alert-danger">
+                {{ $errors->first('LoginError') }}
+            </div>
+        @endif
+
         <!-- Isi Email -->
         <div class="mb-2">
           <label for="LoginEmail" class="form-label">Email</label>
