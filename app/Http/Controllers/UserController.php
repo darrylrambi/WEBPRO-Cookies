@@ -23,15 +23,19 @@ class UserController extends Controller
 
     function Login(Request $request) {
         // check email di database
-        $validateUser = tm_user::where('Email', $request->input('LoginEmail'));
+        $validateUser = tm_user::where('Email', $request->input('LoginEmail'))->first();
 
         // pake validateUer untuk cek password input sama atau tidak dengan yang ada di database
         if ($validateUser && $validateUser->Password == $request->input('LoginPassword')) {
             // check RememberMe
             $remember = $request->has('RememberMe');
 
+            // simpan input ke session
+            $request->session()->put('LoginEmail', $request->input('LoginEmail'));
+            $request->session()->put('LoginPassword', $request->input('LoginPassword'));
+
             if ($remember) {
-                // isi cookie kalo RememberMe
+                // isi cookie dengan session yang sudah disimpan kalo RememberMe
                 setcookie("LoginEmail", session('LoginEmail'), time()+3600); // set cookie expire sejam
                 setcookie("LoginPassword", session('LoginPassword'), time()+3600); // set cookie expire sejam
             } else {
