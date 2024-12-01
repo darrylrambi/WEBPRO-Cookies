@@ -57,13 +57,12 @@ class UserController extends Controller
 
     function LupaPassword(Request $request) {
         // cari email user di database
-        $findUser = tm_user::find($request->input('LupaPasswordEmail'));
+        $findUser = tm_user::where('Email', $request->input('LupaPasswordEmail'))->first();
 
         // pake findUser untuk ganti password sesuai email yang ada di database
         if ($findUser) {
 
             $findUser->update([
-                'Email' => $request->input('LupaPasswordEmail'),
                 'Password' => $request->input('PasswordBaru'), 
             ]);
 
