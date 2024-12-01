@@ -22,7 +22,7 @@
       <!-- Insert bacotan formalitas -->
       <div class="fs-2 fw-bold text-center">Login</div>
 
-      <form method = "POST" action = "userLogin.php">
+      <form method = "POST" action = "LoginPage">
         @csrf
 
         <!-- Isi Email -->
@@ -40,7 +40,7 @@
 
         <!-- Button masuk -->
         <div class="d-flex flex-column justify-content-center btn btn-primary">
-          <button type="button" class="btn">Login</button>
+          <button class="btn">Login</button>
         </div>
 
         <!-- Lempar ke Lupa password -->

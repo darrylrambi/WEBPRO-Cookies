@@ -39,7 +39,7 @@
 
         <!-- Button masuk -->
         <div class="d-flex flex-column justify-content-center btn btn-primary">
-          <button type="button" class="btn">Register</button>
+          <button class="btn">Register</button>
         </div>
 
         <!-- Lempar ke daftar -->
