@@ -31,6 +31,12 @@
             </div>
         @endif
 
+        @if(session('Berhasil'))
+            <div class="alert alert-success">
+                {{ session('Berhasil') }}
+            </div>
+        @endif  
+
         <!-- Isi Email -->
         <div class="mb-2">
           <label for="LoginEmail" class="form-label">Email</label>

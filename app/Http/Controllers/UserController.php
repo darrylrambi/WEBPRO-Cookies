@@ -18,7 +18,7 @@ class UserController extends Controller
             'Password' => session('RegisterPassword')
         ]);
 
-        return redirect('LoginPage')->with('Registrasi berhasil!');
+        return redirect('LoginPage')->with('Berhasil','Registrasi berhasil!');
     }
 
     function Login(Request $request) {
